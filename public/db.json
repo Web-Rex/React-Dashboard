@@ -1,0 +1,60 @@
+{
+  "counts": [
+    {
+      "persen": 6,
+      "total": 43,
+      "title": "new tickets"
+    },
+    {
+      "persen": 3,
+      "total": 17,
+      "title": "Closes Today"
+    },
+    {
+      "persen": 9,
+      "total": 7,
+      "title": "New Replies"
+    },
+    {
+      "persen": 4,
+      "total": "23.7k",
+      "title": "Followers"
+    },
+    {
+      "persen": 21,
+      "total": "95%",
+      "title": "Daily Earming"
+    },
+    {
+      "persen": 621,
+      "total": 43,
+      "title": "Products"
+    }
+  ],
+  "user": [
+    {
+      "id": "1",
+      "name": "Al Mamon",
+      "image": "https://i.ibb.co.com/P67ZTDG/works-1-5aab4914.jpg",
+      "commit": "good products",
+      "date": "11-02-2024"
+    },
+    {
+      "id": "1",
+      "name": "Ali Baba",
+      "image": "https://i.ibb.co.com/8xV8zjN/works-2-fc239f31.jpg",
+      "commit": "good Interface",
+      "date": "11-02-2024"
+    },
+    {
+      "id": "1",
+      "name": "Arif Mia",
+      "image": "https://i.ibb.co.com/GnQkvjz/works-4-b9117f6a.jpg",
+      "commit": "Internail Products",
+      "date": "11-02-2024"
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}
