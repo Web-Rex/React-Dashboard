@@ -8,7 +8,7 @@ const DashboardCard = () => {
   const navigate = useNavigate();
 
   if (user_data?.is_logged_in === false) {
-    navigate("/login");
+    // navigate("/login");
   }
 
   return (
@@ -31,7 +31,7 @@ const DashboardCard = () => {
               </p>
               <div>
                 <h2 className="text-2xl font-semibold text-[#262626]/80">
-                  {val?.total}
+                  {ind === 0 ? user_data?.market_price : val?.total}
                 </h2>
                 <p className="font-medium text-[#262626]/60">{val?.title}</p>
               </div>

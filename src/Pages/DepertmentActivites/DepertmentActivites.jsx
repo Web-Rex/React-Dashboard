@@ -1,7 +1,8 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import user from "../../assets/images/user.jpg";
 import { useDispatch, useSelector } from "react-redux";
-import { get_data } from "../../redux/actions/index";
+import { connect_socket, get_data } from "../../redux/actions/index";
+import { io } from "socket.io-client";
 
 const DepertmentActivites = () => {
   const user_data = useSelector((state) => state.user_reducer);
@@ -9,6 +10,7 @@ const DepertmentActivites = () => {
 
   useEffect(() => {
     dispatch(get_data());
+    dispatch(connect_socket());
 
     return () => {};
   }, [dispatch]);

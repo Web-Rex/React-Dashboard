@@ -3,6 +3,7 @@ import {
   GET_DATA_FAILURE,
   GET_DATA_SUCCESSFUL,
   SET_EMAIL,
+  SET_MARKET_PRICE,
   LOGGED_IN,
   LOGGED_OUT,
 } from "../utils";
@@ -10,6 +11,7 @@ import {
 const default_state = {
   data: {},
   user_email: "",
+  market_price: "hiii",
   is_logged_in: false,
   is_loading: false,
   error: null,
@@ -34,6 +36,9 @@ export const UserReducer = (state = default_state, action) => {
 
     case SET_EMAIL:
       return { ...state, user_email: action.payload };
+
+    case SET_MARKET_PRICE:
+      return { ...state, market_price: action.payload };
 
     default:
       return state;
