@@ -8,7 +8,7 @@ const DashboardCard = () => {
   const navigate = useNavigate();
 
   if (user_data?.is_logged_in === false) {
-    // navigate("/login");
+    navigate("/login");
   }
 
   return (

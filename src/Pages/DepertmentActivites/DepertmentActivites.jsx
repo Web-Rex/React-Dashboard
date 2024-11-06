@@ -9,8 +9,8 @@ const DepertmentActivites = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(get_data());
-    dispatch(connect_socket());
+    dispatch(get_data()); // this gets the data from db.json and default current price from the api
+    dispatch(connect_socket()); // this actions connect to the socket api
 
     return () => {};
   }, [dispatch]);

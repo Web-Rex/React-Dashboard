@@ -7,6 +7,7 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
+// this endpoint sends the default data to the frontend
 app.get("/", (req, res, next) => {
   res.send(data);
 });

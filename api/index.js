@@ -3,9 +3,10 @@ import * as io from "socket.io";
 import { createServer } from "http";
 import { data } from "./db.js";
 
-// [ Socket.io ]
+// [ initializing Socket.io ]
 const server = createServer(app);
 const socketIo = new io.Server(server, {
+  // giving only the front-end access to the socket-api
   cors: {
     origin: "http://localhost:5173",
     methods: ["GET", "POST"],
@@ -14,30 +15,27 @@ const socketIo = new io.Server(server, {
   pingTimeout: 60000,
 });
 
+// setting up the methods that can be accessed when a connection is made to the api
 socketIo.on("connection", (socket) => {
-  // ----------------------------------------------------------------------------- [ Add-New-User ]
+  console.log("connected");
+
+  // ----------------------------------------------------------------------------- [ current-market price ]
+  // this generate a random num and edits the data and then sends the data to socket-endpoint [ "current_market_price" ]
+  // it does this every 10seconds
   setInterval(() => {
     const ran = Math.floor(Math.random() * 100) + 1;
     data.value = ran;
 
+    // this sends data to socket-endpoint [ "current_market_price" ]
     socketIo.emit("current_market_price", { status: true, data: data.value });
   }, 10000);
 
-  // ----------------------------------------------------------------------------- [ Add-New-User ]
-  socketIo.emit("connect_socket", { status: true, data: data.value }, () => {
-    console.log("connected");
-  });
-
-  // ----------------------------------------------------------------------------- [ Disconnect-User ]
+  // ----------------------------------------------------------------------------- [ disconnect ]
+  // if the front end disconnects from socket this functions runes
+  //  this just sets the data to 100
   socket.on("disconnect", async () => {
     data.value = 100;
     console.log("disconnect");
-    socketIo.emit("getMarketPrice", { status: true, data: data });
-  });
-
-  // ----------------------------------------------------------------------------- [ New-User-Message ]
-  socket.on("sendMessage", async (data) => {
-    socketIo.to(session.socketId).emit("getMessage", data.msg);
   });
 });
 
